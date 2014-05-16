@@ -8,9 +8,9 @@
 <% end %>
 
 <ul>
-  <%= @coverage_reports.each do |report| %>
+  <% @coverage_reports.each do |report| %>
   <li>
-    <a href="user_coverage_report(@user, report)">
+    <a href="/users/<%= @user.id %>/coverage_reports/<%= report.id %>">
       <h3><%= report.company_name %>: <%= report.announcement %></h3>
     </a>
   </li>

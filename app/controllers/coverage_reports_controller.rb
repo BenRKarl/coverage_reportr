@@ -12,12 +12,12 @@ end
 def create
   user = User.find(params[:user_id])
   coverage_report = CoverageReport.create(coverage_report_params)
-  binding.pry
+  user.coverage_reports << coverage_report
   redirect_to user_path(user)
 end
 
 def show
-  @user = User.find(params[:id])
+  @user = User.find(params[:user_id])
   @coverage_reports = @user.coverage_reports.all
 end
 
