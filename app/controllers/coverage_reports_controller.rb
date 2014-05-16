@@ -18,20 +18,24 @@ end
 
 def show
   @user = User.find(params[:user_id])
+  @coverage_report = CoverageReport.find(params[:id])
   @coverage_reports = @user.coverage_reports.all
 end
 
 def edit
+  @user = User.find(params[:user_id])
   @coverage_report = CoverageReport.find(params[:id])
 end
 
 def update
+  user = User.find(params[:user_id])
   coverage_report = CoverageReport.find(params[:id])
   coverage_report.update(coverage_report_params)
   redirect_to user_path(user)
 end
 
 def destroy
+  user = User.find(params[:user_id])
   coverage_report = CoverageReport.find(params[:id])
   coverage_report.delete
   redirect_to user_path(user)

@@ -1,6 +1,12 @@
 <h1>Show Coverage Report</h1>
 
-<h2>Button to edit coverage report</h2>
+<%= form_tag(edit_user_coverage_report_path(@user, @coverage_report), method: "get") do %>
+<%= submit_tag "Edit Coverage Report" %>
+<% end %>
+
+<%= form_tag(user_coverage_report_path(@user, @coverage_report), method: "delete") do %>
+<%= submit_tag "Delete Coverage Report" %>
+<% end %>
 
 <h2>Iterate to display all existing hits</h2>
 

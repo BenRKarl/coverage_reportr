@@ -1,0 +1,7 @@
+<%= form_for [@user, @coverage_report, @hit] do |f| %>
+<%= f.label :hit_url %>
+<%= f.text_field :hit_url %>
+<%= f.label :announcement %>
+<%= f.text_field :announcement %>
+<%= f.submit %>
+<% end %>
