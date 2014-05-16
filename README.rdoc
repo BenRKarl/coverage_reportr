@@ -1,28 +1,21 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Coverage Reportr lets you create coverage reports quickly and share them with colleagues and clients with ease.
 
-Things you may want to cover:
+It takes advantage of the below technologies:
 
-* Ruby version
+* Ruby version 2.1.1  
+* Rails version 4.1.1
+* Text analysis by AlchemyAPI: http://www.alchemyapi.com/api/
+* Additional text analysis by Nokogiri: http://nokogiri.org/
+* Coverage Reportr uses PostgreSQL for database management: http://www.postgresql.org/
+* Coverage Reportr uses Skeleton for responsive (and good looking) design: http://www.getskeleton.com/
 
-* System dependencies
+Gems:
+Coverage Reportr has a few dependencies:
+- Nokogiri gem: https://rubygems.org/gems/nokogiri
+- the AlchemyAPI gem written by johnallen3d: https://github.com/technekes/alchemy-api-rb
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Deployment Instruction:
+* When running locally - simply initiate the rails server and point your browser to localhost:3000
+* Heroku link is pending, but check back soon for an online version.
