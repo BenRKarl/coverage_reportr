@@ -1,0 +1,22 @@
+<h1>View <%= @user.username %>'s Coverage Reports</h1>
+<%= form_tag(edit_user_path(@user), method: "get") do %>
+<%= submit_tag "Edit Account" %>
+<% end %>
+
+<%= form_tag(user_path(@user), method: "delete") do %>
+<%= submit_tag "Delete Account" %>
+<% end %>
+
+<ul>
+  <%= @coverage_reports.each do |report| %>
+  <li>
+    <a href="user_coverage_report(@user, report)">
+      <h3><%= report.company %>: <%= report.announcement %></h3>
+    </a>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_tag(new_user_coverage_report_path(@user), method: "get") do %>
+<%= submit_tag "Create New Coverage Report" %>
+<% end %>

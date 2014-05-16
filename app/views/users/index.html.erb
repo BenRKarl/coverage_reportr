@@ -1,0 +1,17 @@
+<h1>Here's the user login/create account page.</h1>
+
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <a href="/users/<%= user.id %>">
+      <%= user.username %>
+    </a>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_tag(new_user_path, method: "get") do %>
+<%= submit_tag "Create Account" %>
+<% end %>
+
+

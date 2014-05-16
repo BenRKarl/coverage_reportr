@@ -27,6 +27,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    alchemy-api-rb (0.2.2)
+      excon (~> 0.28.0)
+      faraday (~> 0.8.1)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     coffee-rails (4.0.1)
@@ -37,7 +40,10 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     erubis (2.7.0)
+    excon (0.28.0)
     execjs (2.0.2)
+    faraday (0.8.9)
+      multipart-post (~> 1.2.0)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.7)
@@ -51,8 +57,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (5.3.3)
     multi_json (1.10.0)
+    multipart-post (1.2.0)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -113,9 +123,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alchemy-api-rb
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pg
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
