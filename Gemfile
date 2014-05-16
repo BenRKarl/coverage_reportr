@@ -37,5 +37,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'pry'
 gem 'alchemy-api-rb', :require => 'alchemy_api'
 gem 'nokogiri'
