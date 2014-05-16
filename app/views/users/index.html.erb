@@ -3,7 +3,7 @@
 <ul>
   <% @users.each do |user| %>
   <li>
-    <a href="/users/<%= user.id %>">
+    <a href="/users/<%= user.id %>"> <%# can this path be written as "users_path(user)"? %>
       <%= user.username %>
     </a>
   </li>

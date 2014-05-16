@@ -9,7 +9,7 @@ def create
   @user = User.find(params[:user][:id].to_i)
   coverage_report = CoverageReport.create(coverage_report_params)
   @user.coverage_reports << coverage_report
-  redirect_to user_path(@user)
+  redirect_to coverage_report_path(coverage_report)
 end
 
 def show
@@ -37,6 +37,8 @@ def destroy
   coverage_report.delete
   redirect_to user_path(@user)
 end
+
+private
 
 def coverage_report_params
   params.require(:coverage_report).permit(:company_name, :announcement)

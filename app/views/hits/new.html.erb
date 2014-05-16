@@ -7,9 +7,14 @@
 
  -->
 
+<%= form_tag(coverage_report_path(@coverage_report), method: "get") do %>
+  <%= hidden_field :user, :id %>
+<%= submit_tag "View Coverage Report" %>
 
 <%= form_for @hit do |t| %>
   <%= t.label :hit_url %>
   <%= t.text_field :hit_url %>
+  <%= hidden_field :user, :id %>
+  <%= hidden_field :coverage_report, :id %>
   <%= t.submit %>
 <% end %>

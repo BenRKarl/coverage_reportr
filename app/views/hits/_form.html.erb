@@ -1,4 +1,4 @@
-<%= form_for [@user, @coverage_report, @hit] do |f| %>
+<%= form_for  do |f| %>
 <%= f.label :hit_url %>
 <%= f.text_field :hit_url, value: "<%= @get_url %>" %></br>
 <%= f.label :hit_publication %>

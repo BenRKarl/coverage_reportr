@@ -14,7 +14,7 @@ def create
 end
 
 def show
-  @user = User.find(params[:id])
+  @user = User.find(params[:id].to_i)
   @coverage_reports = @user.coverage_reports.all
 end
 
@@ -33,6 +33,8 @@ def destroy
   user.delete
   redirect_to users_path
 end
+
+private
 
 def user_params
   params.require(:user).permit(:username)
