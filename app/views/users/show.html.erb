@@ -1,4 +1,5 @@
 <h1>View <%= @user.username %>'s Coverage Reports</h1>
+
 <%= form_tag(edit_user_path(@user), method: "get") do %>
 <%= submit_tag "Edit Account" %>
 <% end %>
@@ -10,13 +11,18 @@
 <ul>
   <% @coverage_reports.each do |report| %>
   <li>
-    <a href="/users/<%= @user.id %>/coverage_reports/<%= report.id %>">
-      <h3><%= report.company_name %>: <%= report.announcement %></h3>
-    </a>
+      <h3>
+        <%= report.company_name %>: <%= report.announcement %>
+      </h3>
+      <%= form_tag(coverage_report_path(report), method: "get") do %>
+        <%= hidden_field :user, :id %>
+      <%= submit_tag "View Coverage Report" %>
+<% end %>
   </li>
   <% end %>
 </ul>
 
-<%= form_tag(new_user_coverage_report_path(@user), method: "get") do %>
+<%= form_tag(new_coverage_report_path, method: "get") do %>
+<%= hidden_field :user, :id %>
 <%= submit_tag "Create New Coverage Report" %>
 <% end %>

@@ -1,7 +1,15 @@
 <%= form_for [@user, @coverage_report, @hit] do |f| %>
 <%= f.label :hit_url %>
-<%= f.text_field :hit_url %>
-<%= f.label :announcement %>
-<%= f.text_field :announcement %>
+<%= f.text_field :hit_url, value: "<%= @get_url %>" %></br>
+<%= f.label :hit_publication %>
+<%= f.text_field :hit_publication %></br>
+<%= f.label :hit_title %>
+<%= f.text_field :hit_title %></br>
+<%= f.label :hit_author %>
+<%= f.text_field :hit_author %></br>
+<%= f.label :hit_date %>
+<%= f.text_field :hit_date %></br>
+<%= f.label :hit_sentiment %>
+<%= f.text_field :hit_sentiment %></br>
 <%= f.submit %>
 <% end %>

@@ -36,4 +36,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  #Sets API key for use of AlchemyAPI
+  AlchemyAPI.key = "cf87ab69c1f36205276c83718c6f65b196ad90ac"
 end

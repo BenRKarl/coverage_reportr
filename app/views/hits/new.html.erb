@@ -1,0 +1,15 @@
+<h1>Enter the URL Below</h1>
+<!--
+<form action="hits_path" method="post">
+  <input type="text" name="hit[hit_url]" placeholder="Enter URL">
+  <input type="submit" value="Add Hit">
+</form>
+
+ -->
+
+
+<%= form_for @hit do |t| %>
+  <%= t.label :hit_url %>
+  <%= t.text_field :hit_url %>
+  <%= t.submit %>
+<% end %>

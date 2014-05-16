@@ -1,13 +1,55 @@
-<h1>Show Coverage Report</h1>
+<h1><%= @coverage_report.company_name %>: <%= @coverage_report.announcement %></h1>
 
-<%= form_tag(edit_user_coverage_report_path(@user, @coverage_report), method: "get") do %>
+<%= form_tag(edit_coverage_report_path(@coverage_report), method: "get") do %>
+<%= hidden_field :user, :id %>
 <%= submit_tag "Edit Coverage Report" %>
 <% end %>
 
-<%= form_tag(user_coverage_report_path(@user, @coverage_report), method: "delete") do %>
+<%= form_tag(coverage_report_path(@coverage_report), method: "delete") do %>
+<%= hidden_field :user, :id %>
 <%= submit_tag "Delete Coverage Report" %>
 <% end %>
 
-<h2>Iterate to display all existing hits</h2>
+</br>
 
-<h2>Button to add hit</h2>
+<table>
+  <tr>
+    <th>
+      Title
+    </th>
+    <th>
+      Author
+    </th>
+    <th>
+      Options
+    </th>
+  </tr>
+  <% @hits.each do |hit| %>
+  <tr>
+    <td>
+      <%= hit.hit_title %>
+    </td>
+    <td>
+      <%= hit.hit_author %>
+    </td>
+    <td>
+      <%= form_tag(edit_hit_path(hit), method: "get") do %>
+      <%= hidden_field :user, :id %>
+      <%= hidden_field :coverage_report, :id %>
+      <%= submit_tag "Edit Hit"%>
+      <% end %>
+      <%= form_tag(hit_path(hit), method: "delete") do %>
+      <%= hidden_field :user, :id %>
+      <%= hidden_field :coverage_report, :id %>
+      <%= submit_tag "Delete Hit"%>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= form_tag(new_hit_path, method: "get") do %>
+<%= hidden_field :user, :id %>
+<%= hidden_field :coverage_report, :id %>
+  <%= submit_tag "Add New Hit"%>
+<% end %>

@@ -80,4 +80,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #Sets API key for use of AlchemyAPI
+  AlchemyAPI.key = "cf87ab69c1f36205276c83718c6f65b196ad90ac"
 end
