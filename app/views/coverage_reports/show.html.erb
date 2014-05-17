@@ -10,6 +10,11 @@
 <%= submit_tag "Delete Coverage Report" %>
 <% end %>
 
+<%= form_tag(user_path(@user), method: "get") do %>
+<%= hidden_field :user, :id %>
+<%= submit_tag "Back to User Page" %>
+<% end %>
+
 </br>
 
 <table>
@@ -19,6 +24,9 @@
     </th>
     <th>
       Author
+    </th>
+    <th>
+      URL
     </th>
     <th>
       Options
@@ -31,6 +39,9 @@
     </td>
     <td>
       <%= hit.hit_author %>
+    </td>
+    <td>
+      <%= hit.hit_url %>
     </td>
     <td>
       <%= form_tag(edit_hit_path(hit), method: "get") do %>
@@ -51,5 +62,5 @@
 <%= form_tag(new_hit_path, method: "get") do %>
 <%= hidden_field :user, :id %>
 <%= hidden_field :coverage_report, :id %>
-  <%= submit_tag "Add New Hit"%>
+<%= submit_tag "Add New Hit"%>
 <% end %>
