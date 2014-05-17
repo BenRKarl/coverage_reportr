@@ -28,7 +28,7 @@ def update
   @user = User.find(params[:user][:id].to_i)
   coverage_report = CoverageReport.find(params[:id])
   coverage_report.update(coverage_report_params)
-  redirect_to user_path(@user)
+  redirect_to coverage_report_path(coverage_report)
 end
 
 def destroy
