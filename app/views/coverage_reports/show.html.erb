@@ -45,8 +45,8 @@
     </td>
     <td>
       <%= form_tag(edit_hit_path(hit), method: "get") do %>
-      <%= hidden_field :user, :id %>
-      <%= hidden_field :coverage_report, :id %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <%= hidden_field_tag :coverage_report_id, @coverage_report.id %>
       <%= submit_tag "Edit Hit"%>
       <% end %>
       <%= form_tag(hit_path(hit), method: "delete") do %>

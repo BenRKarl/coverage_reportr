@@ -1,15 +1,17 @@
-<%= form_for [@user, @coverage_report, @hit] do |f| %>
+<%= form_for @hit do |f| %>
 <%= f.label :hit_url %>
-<%= f.text_field :hit_url, value: "<%= @get_url %>" %></br>
+<%= f.text_field :hit_url, value: "hit URL should be here" %> </br>
 <%= f.label :hit_publication %>
-<%= f.text_field :hit_publication %></br>
+<%= f.text_field :hit_publication, value: "something" %> </br>
 <%= f.label :hit_title %>
-<%= f.text_field :hit_title %></br>
+<%= f.text_field :hit_title, value: "API result from Nokogiri" %> </br>
 <%= f.label :hit_author %>
-<%= f.text_field :hit_author %></br>
+<%= f.text_field :hit_author, value: "API result from Alchemy" %> </br>
 <%= f.label :hit_date %>
-<%= f.text_field :hit_date %></br>
+<%= f.text_field :hit_date, value: "API result from Nokogiri" %> </br>
 <%= f.label :hit_sentiment %>
-<%= f.text_field :hit_sentiment %></br>
+<%= f.text_field :hit_sentiment, value: "API result from Alchemy" %> </br>
+<%= hidden_field :user, :id %>
+<%= hidden_field :coverage_report, :id %>
 <%= f.submit %>
 <% end %>
