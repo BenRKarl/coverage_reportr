@@ -39,4 +39,5 @@ gem 'spring',        group: :development
 
 gem 'pry'
 gem 'alchemy-api-rb', :require => 'alchemy_api'
-gem 'nokogiri'
+#gem 'nokogiri'
+gem 'nokogiri', '~> 1.6.2.1'

@@ -28,6 +28,10 @@ def edit
   @user = User.find(params[:user_id].to_i)
   @coverage_report = CoverageReport.find(params[:coverage_report_id].to_i)
   @hit = Hit.find(params[:id])
+  @hit.hit_title = Hit.get_title(@hit.hit_url)
+  @hit.hit_author = Hit.get_author(@hit.hit_url)
+  @hit.hit_date = Hit.get_date(@hit.hit_url)
+  @hit.hit_sentiment = Hit.get_sentiment(@hit.hit_url)
 end
 
 def update
