@@ -14,8 +14,8 @@
       <h3>
         <%= report.company_name %>: <%= report.announcement %>
       </h3>
-      <%= form_tag(coverage_report_path(report), method: "get") do %>
-        <%= hidden_field :user, :id %>
+      <%= form_tag(coverage_report_path(report, :user_id), method: "get") do %>
+        <%= hidden_field :user_id, @user.id %>
       <%= submit_tag "View Coverage Report" %>
   <% end %>
   </li>
