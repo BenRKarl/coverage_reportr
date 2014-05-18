@@ -1,2 +1,11 @@
-<h1>Edit page for Hit</h1>
-<%= render 'form' %>
+<div class="row"></div>
+<div class="container">
+<div class="five columns">
+<h1>Edit Your Hit</h1>
+<%= render 'form'%>
+</div>
+
+<div class="eleven columns hit_frame">
+  <iframe src="<%= @hit.hit_url %>" frameborder="0"></iframe>
+</div>
+</div>

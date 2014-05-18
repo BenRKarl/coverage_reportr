@@ -1,4 +1,8 @@
-<h1>Here's the user login/create account page.</h1>
+<div class="row"></div>
+<div class="container">
+<div class="sixteen columns">
+<h1>Coverage Reportr</h1>
+<h2>Serving Coverage Reports with Ease and Grace</h2>
 
 <ul>
   <% @users.each do |user| %>
@@ -13,5 +17,5 @@
 <%= form_tag(new_user_path, method: "get") do %>
 <%= submit_tag "Create Account" %>
 <% end %>
-
-
+</div>
+</div>

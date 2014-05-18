@@ -1,22 +1,32 @@
-<h1><%= @coverage_report.company_name %>: <%= @coverage_report.announcement %></h1>
-
+<div class="row"></div>
+<div class="container">
+<div class="sixteen columns alpha">
+<h1><%= @coverage_report.company_name %></h1>
+<h2><%= @coverage_report.announcement %></h2>
+<div class="two columns alpha omega">
 <%= form_tag(edit_coverage_report_path(@coverage_report), method: "get") do %>
 <%= hidden_field :user, :id %>
-<%= submit_tag "Edit Coverage Report" %>
+<%= submit_tag "Edit" %>
 <% end %>
-
+</div>
+<div class="two columns alpha omega">
 <%= form_tag(coverage_report_path(@coverage_report), method: "delete") do %>
 <%= hidden_field :user, :id %>
-<%= submit_tag "Delete Coverage Report" %>
+<%= submit_tag "Delete" %>
 <% end %>
-
+</div>
+<div class="two columns alpha omega">
 <%= form_tag(user_path(@user), method: "get") do %>
 <%= hidden_field :user, :id %>
-<%= submit_tag "Back to User Page" %>
+<%= submit_tag "Home" %>
 <% end %>
+</div>
+</div>
+</div>
+</div>
 
-</br>
-
+<div class="container">
+<div class="sixteen columns alpha hits_table">
 <table>
   <tr>
     <th>
@@ -58,9 +68,12 @@
   </tr>
   <% end %>
 </table>
+</div>
+<div class="row"></div>
 
 <%= form_tag(new_hit_path, method: "get") do %>
 <%= hidden_field :user, :id %>
 <%= hidden_field :coverage_report, :id %>
 <%= submit_tag "Add New Hit"%>
 <% end %>
+</div>
