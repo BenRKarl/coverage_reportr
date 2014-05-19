@@ -1,17 +1,65 @@
+.nav_container form {
+  display: inline;
+}
+
+.warning {
+  border: 1px solid lightgrey;
+  padding: 1em;
+  background-color: pink;
+}
+
 .hits_table {
-border: 1px solid black;
+    width: 15em;
+    padding: 0;
+    margin: 0;
 }
 
-.hits_table th {
-border: 1px solid black;
-padding: 1em;
-width: 35%;
+.hits_table form {
+    padding: 0;
+    margin: 0;
 }
 
-.hits_table td {
-border: 1px solid black;
-padding: 1em;
+caption {
+    padding: 0 0 5px 0;
+    width: 700px;
+    font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    text-align: left;
 }
+
+tr {
+    max-height: 2em;
+}
+
+th {
+    color: #4f6b72;
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    border-top: 1px solid #C1DAD7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 6px 6px 12px;
+    background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+
+th.nobg {
+    border-top: 0;
+    border-left: 0;
+    border-right: 1px solid #C1DAD7;
+    background: none;
+}
+
+td {
+    border: 1px solid #C1DAD7;
+    background: #fff;
+    padding: 6px 6px 6px 12px;
+    color: #4f6b72;
+    overflow: hidden;
+}
+
+.hit_options {}
+
+/* Good Stuff Below */
 
 .hit_frame {
 position: relative;
@@ -22,7 +70,7 @@ overflow: hidden;
 }
 
 .hit_frame iframe {
-position: absolute;
+position: relative;
 top: 0;
 left: 0;
 width: 100%;
@@ -31,4 +79,13 @@ height: 100%;
 
 .cr_list {
   padding-left: 3em;
+}
+
+#footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: 5em;
+    text-align: center;
 }

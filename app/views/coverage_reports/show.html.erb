@@ -2,20 +2,15 @@
 <div class="container">
 <div class="sixteen columns alpha">
 <h1><%= @coverage_report.company_name %></h1>
-<h2><%= @coverage_report.announcement %></h2>
-<div class="two columns alpha omega">
+<div class="five columns alpha omega nav_container">
 <%= form_tag(edit_coverage_report_path(@coverage_report), method: "get") do %>
 <%= hidden_field :user, :id %>
 <%= submit_tag "Edit" %>
 <% end %>
-</div>
-<div class="two columns alpha omega">
 <%= form_tag(coverage_report_path(@coverage_report), method: "delete") do %>
 <%= hidden_field :user, :id %>
 <%= submit_tag "Delete" %>
 <% end %>
-</div>
-<div class="two columns alpha omega">
 <%= form_tag(user_path(@user), method: "get") do %>
 <%= hidden_field :user, :id %>
 <%= submit_tag "View Account" %>
@@ -24,10 +19,24 @@
 </div>
 </div>
 </div>
+<div class="row"></div>
 
 <div class="container">
 <div class="sixteen columns alpha hits_table">
 <table>
+
+<caption>
+  <h3>
+    <span style="font-weight: strong;">Announcement: </span>
+    <%= @coverage_report.announcement %>
+  </h3>
+<%= form_tag(new_hit_path, method: "get") do %>
+<%= hidden_field :user, :id %>
+<%= hidden_field :coverage_report, :id %>
+<%= submit_tag "Add New Hit"%>
+<% end %>
+</caption>
+
   <tr>
     <th>
       Title
@@ -53,7 +62,7 @@
     <td>
       <%= hit.hit_url %>
     </td>
-    <td>
+    <td class="hit_options">
       <%= form_tag(edit_hit_path(hit), method: "get") do %>
       <%= hidden_field_tag :user_id, @user.id %>
       <%= hidden_field_tag :coverage_report_id, @coverage_report.id %>
@@ -70,10 +79,4 @@
 </table>
 </div>
 <div class="row"></div>
-
-<%= form_tag(new_hit_path, method: "get") do %>
-<%= hidden_field :user, :id %>
-<%= hidden_field :coverage_report, :id %>
-<%= submit_tag "Add New Hit"%>
-<% end %>
 </div>
