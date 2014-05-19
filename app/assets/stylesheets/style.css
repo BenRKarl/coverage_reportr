@@ -1,3 +1,7 @@
+.nav_container {
+  margin-top: 5px;
+}
+
 .nav_container form {
   display: inline;
 }
@@ -9,7 +13,6 @@
 }
 
 .hits_table {
-    width: 15em;
     padding: 0;
     margin: 0;
 }

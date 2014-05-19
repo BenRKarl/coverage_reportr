@@ -1,7 +1,6 @@
 <div class="row"></div>
 <div class="container">
 <div class="sixteen columns alpha">
-<h1><%= @coverage_report.company_name %></h1>
 <div class="five columns alpha omega nav_container">
 <%= form_tag(edit_coverage_report_path(@coverage_report), method: "get") do %>
 <%= hidden_field :user, :id %>
@@ -13,13 +12,14 @@
 <% end %>
 <%= form_tag(user_path(@user), method: "get") do %>
 <%= hidden_field :user, :id %>
-<%= submit_tag "View Account" %>
+<%= submit_tag "Back to Account" %>
 <% end %>
 </div>
-</div>
-</div>
-</div>
 <div class="row"></div>
+<h1><%= @coverage_report.company_name %></h1>
+</div>
+</div>
+</div>
 
 <div class="container">
 <div class="sixteen columns alpha hits_table">
@@ -27,9 +27,9 @@
 
 <caption>
   <h3>
-    <span style="font-weight: strong;">Announcement: </span>
     <%= @coverage_report.announcement %>
   </h3>
+<div class="row"></div>
 <%= form_tag(new_hit_path, method: "get") do %>
 <%= hidden_field :user, :id %>
 <%= hidden_field :coverage_report, :id %>

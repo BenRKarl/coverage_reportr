@@ -10,20 +10,30 @@
 
 <div class="row"></div>
 
-<div class="sixteen columns cr_list">
-<ul>
+<div class="sixteen columns alpha hits_table">
+<table>
+  <tr>
+    <th>
+      Coverage Report Name
+    </th>
+    <th>
+      Options
+    </th>
+  </tr>
   <% @coverage_reports.each do |report| %>
-  <li>
-      <h3>
+  <tr>
+      <td>
         <%= report.company_name %>: <%= report.announcement %>
-      </h3>
+      </td>
+      <td>
       <%= form_tag(coverage_report_path(report), method: "get") do %>
         <%= hidden_field_tag :user_id, @user.id %>
         <%= submit_tag "View" %>
       <% end %>
-  </li>
+      </td>
+  </tr>
   <% end %>
-</ul>
+</table>
 </div>
 <div class="row"></div>
 <%= form_tag(new_coverage_report_path, method: "get") do %>

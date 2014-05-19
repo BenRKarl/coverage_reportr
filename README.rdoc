@@ -25,4 +25,6 @@ LIST OF NON-FUNCTIONALITIES:
 * Does not automatically extract publication name.
 * Does not automatically extract date for most sites and is therefore currently disabled due to errors caused.
 * New York Times prevents Nokogiri from redirecting due to required log-in. May need to integrate NYT article API.
-* ESPN.com redirects automatically to load page directly.
+* List of sites that redirect automatically to page:
+** ESPN.com
+** Cnet.com
