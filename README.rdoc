@@ -4,7 +4,7 @@ Coverage Reportr lets you create coverage reports quickly and share them with co
 
 It takes advantage of the below technologies:
 
-* Ruby version 2.1.1  
+* Ruby version 2.1.1
 * Rails version 4.1.1
 * Text analysis by AlchemyAPI: http://www.alchemyapi.com/api/
 * Additional text analysis by Nokogiri: http://nokogiri.org/
@@ -20,3 +20,9 @@ Coverage Reportr has a few dependencies:
 Deployment Instructions:
 * When running locally - simply initiate the rails server and point your browser to localhost:3000
 * Or visit Coverage Reportr on Heroku: http://coverage-reportr.herokuapp.com/
+
+LIST OF NON-FUNCTIONALITIES:
+* Does not automatically extract publication name.
+* Does not automatically extract date for most sites and is therefore currently disabled due to errors caused.
+* New York Times prevents Nokogiri from redirecting due to required log-in. May need to integrate NYT article API.
+* ESPN.com redirects automatically to load page directly.

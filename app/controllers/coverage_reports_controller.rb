@@ -17,6 +17,16 @@ def show
   @coverage_report = CoverageReport.find(params[:id])
   @coverage_reports = @user.coverage_reports.all
   @hits = @coverage_report.hits.all
+
+#EXPORT TO EXCEL STUFF
+# respond_to do |format|
+#   format.html
+#   format.xls { send_data(@posts.to_xls) }
+#   # format.xls {
+#     #   filename = "Posts-#{Time.now.strftime("%Y%m%d%H%M%S")}.xls"
+#     #   send_data(@posts.to_xls, :type => "text/xls; charset=utf-8; header=present", :filename => filename)
+#     # }
+#   end
 end
 
 def edit
