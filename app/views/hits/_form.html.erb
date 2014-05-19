@@ -13,5 +13,5 @@
 <%= f.text_field :hit_sentiment, value: "#{@hit.hit_sentiment}" %> </br>
 <%= hidden_field :user, :id %>
 <%= hidden_field :coverage_report, :id %>
-<%= f.submit %>
+<%= f.submit "Save Hit" %>
 <% end %>
