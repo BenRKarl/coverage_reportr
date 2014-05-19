@@ -4,15 +4,9 @@
 <h1>Coverage Reportr</h1>
 <h2>Serving Coverage Reports with Ease and Grace</h2>
 
-<ul>
-  <% @users.each do |user| %>
-  <li>
-    <a href="/users/<%= user.id %>"> <%# can this path be written as "users_path(user)"? %>
-      <%= user.username %>
-    </a>
-  </li>
-  <% end %>
-</ul>
+<%= form_tag(sessions_new_path, method: "get") do %>
+<%= submit_tag "Log In" %>
+<% end %>
 
 <%= form_tag(new_user_path, method: "get") do %>
 <%= submit_tag "Create Account" %>
