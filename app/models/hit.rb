@@ -6,9 +6,9 @@ class Hit < ActiveRecord::Base
     Nokogiri::HTML(open(url)).css('title').first.content
   end
 
-  def self.get_date(url)
-    Nokogiri::HTML(open(url)).css('time').first.content
-  end
+  # def self.get_date(url)
+  #   Nokogiri::HTML(open(url)).css('time').first.content
+  # end
 
   def self.get_author(url)
     AlchemyAPI::AuthorExtraction.new.search(:url => url)['author']

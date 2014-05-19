@@ -30,7 +30,7 @@ def edit
   @hit = Hit.find(params[:id])
   @hit.hit_title = Hit.get_title(@hit.hit_url)
   @hit.hit_author = Hit.get_author(@hit.hit_url)
-  @hit.hit_date = Hit.get_date(@hit.hit_url)
+  # @hit.hit_date = Hit.get_date(@hit.hit_url)
   @hit.hit_sentiment = Hit.get_sentiment(@hit.hit_url)
 end
 
