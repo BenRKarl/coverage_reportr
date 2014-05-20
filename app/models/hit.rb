@@ -6,7 +6,12 @@ class Hit < ActiveRecord::Base
 
 
   def self.get_publication(url)
-    URI.parse(url).host.split(".")[1..-2].first
+    host = URI.parse(url).host
+    if host[0] == "w"
+      URI.parse(url).host.split(".")[1..-2].first
+    else
+      URI.parse(url).host.split(".").first
+    end
   end
 
   def self.get_title(url)
