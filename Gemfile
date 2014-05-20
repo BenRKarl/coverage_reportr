@@ -38,6 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 gem 'pry'
+gem 'pry-nav'
+
 gem 'alchemy-api-rb', :require => 'alchemy_api'
 #gem 'nokogiri'
 gem 'nokogiri', '~> 1.6.2.1'

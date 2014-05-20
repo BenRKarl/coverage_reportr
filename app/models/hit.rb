@@ -33,12 +33,14 @@ AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
   # hit_text = AlchemyAPI::TextExtraction.new.search(:url => url)
 
   def self.to_csv(hits)
+    column_names = [:hit_publication, :hit_title, :hit_url, :hit_author, :hit_date, :hit_sentiment]
     CSV.generate do |csv|
-      csv << column_names
+        csv << column_names
         hits.each do |hit|
-          csv << hit.attributes.values_at(*column_names)
-      end
+          csv << column_names.map { |key| hit[key] }
+        end
     end
   end
+
 
 end
