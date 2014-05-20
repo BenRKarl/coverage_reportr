@@ -38,6 +38,19 @@ def destroy
   redirect_to user_path(@user)
 end
 
+def find
+  @new_user = User.new
+  @user = User.find(params[:user][:id].to_i)
+  @coverage_report = CoverageReport.find(params[:coverage_report][:id].to_i)
+end
+
+def share
+  @user = User.find(params[:user][:id].to_i)
+  @new_user = User.find_by email: params['new_user']['email']
+  @coverage_report = CoverageReport.find(params[:coverage_report][:id].to_i)
+  @new_user.coverage_reports << @coverage_report
+end
+
 private
 
 def coverage_report_params

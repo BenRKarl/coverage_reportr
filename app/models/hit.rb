@@ -4,6 +4,7 @@ class Hit < ActiveRecord::Base
   require 'uri'
   require 'csv'
 
+AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
 
   def self.get_publication(url)
     host = URI.parse(url).host

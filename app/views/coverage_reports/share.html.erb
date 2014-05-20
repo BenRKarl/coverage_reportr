@@ -1,0 +1,12 @@
+<div class="row"></div>
+<div class="container">
+<div class="sixteen columns">
+<h1>Sweet, this coverage report was shared with <%= @new_user.username %></h1>
+
+<%= form_tag(coverage_report_path(@coverage_report), method: "get") do %>
+<%= hidden_field_tag :user_id, @user.id %>
+<%= hidden_field :coverage_report, :id %>
+<%= submit_tag "Back to Coverage Report" %>
+<% end %>
+</div>
+</div>

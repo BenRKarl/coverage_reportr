@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   get 'profiles' => 'profiles#index'
 
+  get 'coverage_reports/find' => 'coverage_reports#find'
+  post 'coverage_reports/share' => 'coverage_reports#share'
+
   resources :users
   resources :coverage_reports
   resources :hits
