@@ -2,6 +2,8 @@ class Hit < ActiveRecord::Base
   belongs_to :coverage_report
   require 'open-uri'
   require 'uri'
+  require 'csv'
+
 
   def self.get_publication(url)
     URI.parse(url).host.split(".")[1..-2].first
@@ -23,4 +25,14 @@ class Hit < ActiveRecord::Base
     AlchemyAPI::SentimentAnalysis.new.search(:url => url)['type']
   end
   # hit_text = AlchemyAPI::TextExtraction.new.search(:url => url)
+
+  def self.to_csv(hits)
+    CSV.generate do |csv|
+      csv << column_names
+        hits.each do |hit|
+          csv << hit.attributes.values_at(*column_names)
+      end
+    end
+  end
+
 end

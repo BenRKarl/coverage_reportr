@@ -10,7 +10,7 @@
 
 <div class="row"></div>
 
-<div class="sixteen columns alpha hits_table">
+<div class="sixteen columns alpha offset-by-one hits_table">
 <table>
   <tr>
     <th>
@@ -34,11 +34,12 @@
   </tr>
   <% end %>
 </table>
-</div>
+
 <div class="row"></div>
 <%= form_tag(new_coverage_report_path, method: "get") do %>
 <%= hidden_field :user, :id %>
 <%= submit_tag "New Coverage Report" %>
 <% end %>
+</div>
 </div>
 </div>

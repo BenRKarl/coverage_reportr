@@ -1,2 +1,20 @@
-<h1>Hits Index</h1>
-<h2>Hopefully you don't land here.</h2>
+<table>
+  <tr>
+    <th>Publication</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Date</th>
+    <th>URL</th>
+    <th>Tone</th>
+  </tr>
+  <% @hits.each do |hit| %>
+  <tr>
+    <td><%= hit.hit_publication %></td>
+    <td><%= hit.hit_title %></td>
+    <td><%= hit.hit_author %></td>
+    <td><%= hit.hit_date %></td>
+    <td><%= hit.hit_url %></td>
+    <td><%= hit.hit_sentiment %></td>
+  </tr>
+  <% end %>
+</table>

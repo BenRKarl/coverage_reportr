@@ -1,8 +1,11 @@
 class HitsController < ApplicationController
 
-# def index
-#    @hits = Hit.all
-# end
+def index
+  @user = User.find(params[:user][:id].to_i)
+  @coverage_report = CoverageReport.find(params[:coverage_report][:id].to_i)
+  @hits = @coverage_report.hits.all
+  send_data csv: Hit.to_csv(@hits)
+end
 
 def new
   @user = User.find(params[:user][:id].to_i)

@@ -1,4 +1,4 @@
-# Mime::Type.register_alias "text/excel", :xls
+Mime::Type.register "application/xls", :xls
 
 # @posts = Post.all
 

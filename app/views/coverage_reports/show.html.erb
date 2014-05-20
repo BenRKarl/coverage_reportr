@@ -23,6 +23,7 @@
 
 <div class="container">
 <div class="sixteen columns alpha hits_table">
+
 <table>
 
 <caption>
@@ -34,6 +35,12 @@
 <%= hidden_field :user, :id %>
 <%= hidden_field :coverage_report, :id %>
 <%= submit_tag "Add New Hit"%>
+<% end %>
+
+<%= form_tag(hits_path, method: "get") do %>
+<%= hidden_field :user, :id %>
+<%= hidden_field :coverage_report, :id %>
+<%= submit_tag "Download Coverage Report"%>
 <% end %>
 </caption>
 
