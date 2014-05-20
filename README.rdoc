@@ -15,16 +15,14 @@ Gems:
 Coverage Reportr has a few dependencies:
 - Nokogiri gem: https://rubygems.org/gems/nokogiri
 - the AlchemyAPI gem written by johnallen3d: https://github.com/technekes/alchemy-api-rb
-- the to_xls-rails gem written by liangwenke: https://github.com/liangwenke/to_xls-rails
 
 Deployment Instructions:
 * When running locally - simply initiate the rails server and point your browser to localhost:3000
 * Or visit Coverage Reportr on Heroku: http://coverage-reportr.herokuapp.com/
 
 LIST OF NON-FUNCTIONALITIES:
-* Does not automatically extract publication name.
 * Does not automatically extract date for most sites and is therefore currently disabled due to errors caused.
 * New York Times prevents Nokogiri from redirecting due to required log-in. May need to integrate NYT article API.
 * List of sites that redirect automatically to page:
-** ESPN.com
-** Cnet.com
+  * ESPN.com
+  * Cnet.com
