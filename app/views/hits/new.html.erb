@@ -1,21 +1,23 @@
 <div class="row"></div>
 <div class="container">
-<div class="sixteen columns">
-<h1 class="user_banner">
-<%= @user.username %> (<%= @user.email %>)
-</h1>
-<div class="row"></div>
-<h1>Enter the URL Below</h1>
+  <div class="sixteen columns">
+    <h1 class="user_banner">
+      <%= @user.username %> (<%= @user.email %>)
+    </h1>
+  <div class="row"></div>
+  <h1>Enter the URL Below</h1>
 
-<%= form_tag(hits_path, method: "post") do %>
-<%= text_field :hit, :hit_url %>
-<%= hidden_field :user, :id %>
-<%= hidden_field :coverage_report, :id %>
-<%= submit_tag "Analyze Hit" %>
-<% end %>
-</div>
+  <%= form_tag(hits_path, method: "post") do %>
+    <%= text_field :hit, :hit_url %>
+    <%= hidden_field :user, :id %>
+    <%= hidden_field :coverage_report, :id %>
+    <%= submit_tag "Analyze Hit" %>
+  <% end %>
+  </div>
 
-<div class="five columns warning">
-<p><span style="font-weight:bold;">Note:</span> Information about your hit will be displayed on the next page. Please review it for accuracy before saving it to your coverage report.</p>
-</div>
+  <div class="five columns warning">
+  <p>
+    <span style="font-weight:bold;">Note:</span> Information about your hit will be displayed on the next page. Please review it for accuracy before saving it to your coverage report.
+  </p>
+  </div>
 </div>

@@ -1,23 +1,22 @@
 
 <div class="row"></div>
 <div class="container">
-<div class="sixteen columns">
-  <% if @user.errors.any? %>
-<div class="errors">
-  <p style="font-weight:bold;">
-    Oopsies! ...you did <%= pluralize(@user.errors.count, "bad thing") %>
-  </p>
-  <div class="row"></div>
-  <ul class="error_list">
-    <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+  <div class="sixteen columns">
+    <% if @user.errors.any? %>
+      <div class="errors">
+        <p style="font-weight:bold;">
+          Oopsies! ...you did <%= pluralize(@user.errors.count, "bad thing") %>
+        </p>
+      <div class="row"></div>
+        <ul class="error_list">
+          <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-  </ul>
-</div>
-<% end %>
-<div class="row"></div>
-<h1>Create New Account</h1>
-<%= render 'form' %>
-</div>
-</div>
+  <div class="row"></div>
+    <h1>Create New Account</h1>
+    <%= render 'form' %>
+  </div>
 </div>

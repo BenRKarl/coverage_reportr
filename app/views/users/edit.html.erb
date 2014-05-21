@@ -1,13 +1,13 @@
 <div class="row"></div>
 <div class="container">
-<div class="sixteen columns alpha">
-<h1 class="user_banner">Edit Your Account</h1>
-<div class="row"></div>
-<div class="eight columns alpha omega">
-<%= render 'form' %>
-<%= form_tag(user_path(@user), method: "delete") do %>
-<%= submit_tag "Delete Account" %>
-<% end %>
-</div>
-</div>
+  <div class="sixteen columns alpha">
+    <h1 class="user_banner">Edit Your Account</h1>
+    <div class="row"></div>
+      <div class="eight columns alpha omega">
+        <%= render 'form' %>
+        <%= form_tag(user_path(@user), method: "delete") do %>
+          <%= submit_tag "Delete Account" %>
+        <% end %>
+      </div>
+  </div>
 </div>

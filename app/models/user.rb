@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
     :within => 8..25,
     :too_short => "Your password is too short. It must be between 8 and 25 characters.",
     :too_long => "Your password is too long. It must be between 8 and 25 characters."
-  }
+    }
 end

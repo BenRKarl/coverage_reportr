@@ -1,13 +1,13 @@
 <div class="row"></div>
 <div class="container">
-<div class="sixteen columns">
-<h1>Enter the User's Email Below</h1>
+  <div class="sixteen columns">
+    <h1>Enter the User's Email Below</h1>
 
-<%= form_tag(coverage_reports_share_path, method: "post") do %>
-<%= text_field :new_user, :email %>
-<%= hidden_field :user, :id %>
-<%= hidden_field :coverage_report, :id %>
-<%= submit_tag "Find User" %>
-<% end %>
-</div>
+    <%= form_tag(coverage_reports_share_path, method: "post") do %>
+      <%= text_field :new_user, :email %>
+      <%= hidden_field :user, :id %>
+      <%= hidden_field :coverage_report, :id %>
+      <%= submit_tag "Find User" %>
+    <% end %>
+  </div>
 </div>

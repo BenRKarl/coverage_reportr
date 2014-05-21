@@ -4,7 +4,7 @@ class Hit < ActiveRecord::Base
   require 'uri'
   require 'csv'
 
-AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
+  AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
 
   def self.get_publication(url)
     host = URI.parse(url).host
@@ -19,6 +19,7 @@ AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
     Nokogiri::HTML(open(url)).css('title').first.content
   end
 
+  #Faulty find-date method disabled due to errors
   # def self.get_date(url)
   #   Nokogiri::HTML(open(url)).css('time').first.content
   # end
@@ -30,17 +31,20 @@ AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
   def self.get_sentiment(url)
     AlchemyAPI::SentimentAnalysis.new.search(:url => url)['type']
   end
-  # hit_text = AlchemyAPI::TextExtraction.new.search(:url => url)
+
+  #Unused find-text method, not in scope of app but too potentially useful to delete
+  def self.get_text(url)
+    AlchemyAPI::TextExtraction.new.search(:url => url)
+  end
 
   def self.to_csv(hits)
     column_names = [:hit_publication, :hit_title, :hit_url, :hit_author, :hit_date, :hit_sentiment]
     CSV.generate do |csv|
-        csv << column_names
-        hits.each do |hit|
-          csv << column_names.map { |key| hit[key] }
-        end
+      csv << column_names
+      hits.each do |hit|
+        csv << column_names.map { |key| hit[key] }
+      end
     end
   end
-
 
 end
