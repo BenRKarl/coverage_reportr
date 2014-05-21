@@ -2,6 +2,22 @@
 
 One thing every public relations professional has had to deal with is compiling coverage reports. This process typically involves searching for articles and then pasting information piece-by-piece into an excel grid. Now Coverage Reportr helps to simplify that process by automating most of the data entry and allowing multiple users to collaborate on a single report. You can even download your reports to .csv and send them as attachments or use the data for other applications.
 
+**Once you have an account you can create a coverage report:**
+
+![alt text](http://i.imgur.com/NkE1V1L.png "User Homepage")
+
+**On the next page click "Add Hit" and you'll see this screen where you can paste an article URL:**
+
+![alt text](http://i.imgur.com/cwLAFHD.png "Enter your URL")
+
+**Submit the URL and the article's publication, title, author, tone and today's date will automatically populate the fields in the edit page. Validate that the information is correct, hit submit, and your hit will be added to your report!**
+
+![alt text](http://i.imgur.com/NAHcxKE.png "Edit Hit Page")
+
+**Ta-da!**
+
+![alt text](http://i.imgur.com/MPFVHV7.png "Example coverage report with hit")
+
 One of the coolest features of Coverage Reportr is it's ability to pull information about an article just from the URL and to save an instance as a row in a .csv file. These are all provided by the methods availble to the "hit" class model:
 
 ```ruby
