@@ -58,7 +58,7 @@ One of the coolest features of Coverage Reportr is it's ability to pull informat
   
 ```
 
-Coverage Reportr takes advantage of the below technologies:
+**Coverage Reportr takes advantage of the below technologies:**
 
 * Ruby version 2.1.1
 * Rails version 4.1.1
@@ -67,15 +67,15 @@ Coverage Reportr takes advantage of the below technologies:
 * Coverage Reportr uses PostgreSQL for database management: http://www.postgresql.org/
 * Coverage Reportr uses Skeleton for responsive (and good looking) design: http://www.getskeleton.com/
 
-And it has a few dependencies:
+**And it has a few dependencies:**
 * Nokogiri gem: https://rubygems.org/gems/nokogiri
 * the AlchemyAPI gem written by johnallen3d: https://github.com/technekes/alchemy-api-rb
 
-Deployment Instructions:
+**Deployment Instructions:**
 * When running locally - simply initiate the rails server and point your browser to localhost:3000
 * Or visit Coverage Reportr on Heroku: http://coverage-reportr.herokuapp.com/
 
-Coverage Reportr Backlog:
+**Coverage Reportr Backlog:**
 * No effective date extraction function, therefore it automatically populates with today's date.
 * New York Times prevents Nokogiri from redirecting due to required log-in. Need to integrate NYT article API and add methods specifically for that site. This may be the case with other sites, but I have not come across them yet.
 * When the URL is analyzed, some sites redirect the user directly to the original page:
