@@ -5,55 +5,55 @@ One thing every public relations professional has had to deal with is compiling 
 One of the coolest features of Coverage Reportr is it's ability to pull information about an article just from the URL and to save an instance as a row in a .csv file. These are all provided by the methods availble to the "hit" class model:
 
 ```ruby
-class Hit < ActiveRecord::Base
-  belongs_to :coverage_report
-  require 'open-uri'
-  require 'uri'
-  require 'csv'
+  class Hit < ActiveRecord::Base
+    belongs_to :coverage_report
+    require 'open-uri'
+    require 'uri'
+    require 'csv'
 
-AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
+  AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
 
-  #This method parses the URL string to extract just the name of the publication.
-  def self.get_publication(url)
-    host = URI.parse(url).host
-    if host[0] == "w"
-      URI.parse(url).host.split(".")[1..-2].first
-    else
-      URI.parse(url).host.split(".").first
+    #This method parses the URL string to extract just the name of the publication.
+    def self.get_publication(url)
+      host = URI.parse(url).host
+      if host[0] == "w"
+        URI.parse(url).host.split(".")[1..-2].first
+      else
+        URI.parse(url).host.split(".").first
+      end
+    end
+
+    #Here Nokogiri helps find the article title by seeking the "title" css selector, it works most of the time.
+    def self.get_title(url)
+      Nokogiri::HTML(open(url)).css('title').first.content
+    end
+
+    #AlchemyAPI is a logic-based text reader that intelligently identifies the author of an article.
+    def self.get_author(url)
+      AlchemyAPI::AuthorExtraction.new.search(:url => url)['author']
+    end
+
+    #It can even tell you whether the article is positive or negative in tone, which is an important feature for PR people.
+    def self.get_sentiment(url)
+      AlchemyAPI::SentimentAnalysis.new.search(:url => url)['type']
+    end
+
+    #This method extracts the full body of an article, but it's currently not utilized in the current feature-set.
+    def self.get_text(url)
+      AlchemyAPI::TextExtraction.new.search(:url => url)
+    end
+
+    #This method enables coverage reports to be downloaded in .csv format.
+    def self.to_csv(hits)
+      column_names = [:hit_publication, :hit_title, :hit_url, :hit_author, :hit_date, :hit_sentiment]
+      CSV.generate do |csv|
+          csv << column_names
+          hits.each do |hit|
+            csv << column_names.map { |key| hit[key] }
+          end
+      end
     end
   end
-
-  #Here Nokogiri helps find the article title by seeking the "title" css selector, it works most of the time.
-  def self.get_title(url)
-    Nokogiri::HTML(open(url)).css('title').first.content
-  end
-
-  #AlchemyAPI is a logic-based text reader that intelligently identifies the author of an article.
-  def self.get_author(url)
-    AlchemyAPI::AuthorExtraction.new.search(:url => url)['author']
-  end
-
-  #It can even tell you whether the article is positive or negative in tone, which is an important feature for PR people.
-  def self.get_sentiment(url)
-    AlchemyAPI::SentimentAnalysis.new.search(:url => url)['type']
-  end
-
-  #This method extracts the full body of an article, but it's currently not utilized in the current feature-set.
-  def self.get_text(url)
-    AlchemyAPI::TextExtraction.new.search(:url => url)
-  end
-
-  #This method enables coverage reports to be downloaded in .csv format.
-  def self.to_csv(hits)
-    column_names = [:hit_publication, :hit_title, :hit_url, :hit_author, :hit_date, :hit_sentiment]
-    CSV.generate do |csv|
-        csv << column_names
-        hits.each do |hit|
-          csv << column_names.map { |key| hit[key] }
-        end
-    end
-  end
-end
 ```
 
 Coverage Reportr takes advantage of the below technologies:
