@@ -4,7 +4,7 @@ One thing every public relations professional has had to deal with is compiling 
 
 One of the coolest features of Coverage Reportr is it's ability to pull information about an article just from the URL and to save an instance as a row in a .csv file. These are all provided by the methods availble to the "hit" class model:
 
-```
+```ruby
 
   class Hit < ActiveRecord::Base
     belongs_to :coverage_report
@@ -55,6 +55,7 @@ One of the coolest features of Coverage Reportr is it's ability to pull informat
       end
     end
   end
+  
 ```
 
 Coverage Reportr takes advantage of the below technologies:
