@@ -66,7 +66,7 @@
       <%= hit.hit_author %>
     </td>
     <td>
-      <%= hit.hit_url %>
+      <a href="<%= hit.hit_url %>"><%= hit.hit_url %></a>
     </td>
     <td class="hit_options">
       <%= form_tag(edit_hit_path(hit), method: "get") do %>
