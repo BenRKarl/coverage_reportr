@@ -79,5 +79,5 @@ Coverage Reportr Backlog:
 * No effective date extraction function, therefore it automatically populates with today's date.
 * New York Times prevents Nokogiri from redirecting due to required log-in. Need to integrate NYT article API and add methods specifically for that site. This may be the case with other sites, but I have not come across them yet.
 * When the URL is analyzed, some sites redirect the user directly to the original page:
-* ESPN.com
-* Cnet.com
+  * ESPN.com
+  * Cnet.com
