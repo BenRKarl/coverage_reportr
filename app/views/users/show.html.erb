@@ -1,35 +1,42 @@
 <div class="row"></div>
 <div class="container">
-<div class="sixteen columns alpha">
-<h1><%= @user.username %>'s Coverage Reports</h1>
-<div class="two columns alpha omega">
+<div class="sixteen columns alpha omega">
+<h1 class="user_banner">
+<%= @user.username %> (<%= @user.email %>)
 <%= form_tag(edit_user_path(@user), method: "get") do %>
 <%= submit_tag "Edit Account" %>
 <% end %>
-</div>
+<%= form_tag(sessions_log_out_path, method: "get") do %>
+<%= submit_tag "Log Out" %>
+<% end %>
+</h1>
 
 <div class="row"></div>
 
-<div class="sixteen columns alpha offset-by-one hits_table">
+<div class="sixteen columns alpha omega hits_table">
 <table>
   <tr>
-    <th>
-      Coverage Report Name
-    </th>
-    <th>
-      Options
-    </th>
+    <th class="left_row">Coverage Report Name</th>
+    <th class="right_row">Options</th>
   </tr>
   <% @coverage_reports.each do |report| %>
   <tr>
-      <td>
+      <td class="left_row">
         <%= report.company_name %>: <%= report.announcement %>
       </td>
-      <td>
-      <%= form_tag(coverage_report_path(report), method: "get") do %>
-        <%= hidden_field_tag :user_id, @user.id %>
-        <%= submit_tag "View" %>
-      <% end %>
+      <td class="right_row">
+        <%= form_tag(coverage_report_path(report), method: "get") do %>
+          <%= hidden_field_tag :user_id, @user.id %>
+          <%= submit_tag "View" %>
+        <% end %>
+        <%= form_tag(edit_coverage_report_path(report), method: "get") do %>
+          <%= hidden_field :user, :id %>
+          <%= submit_tag "Edit" %>
+        <% end %>
+        <%= form_tag(coverage_report_path(report), method: "delete") do %>
+          <%= hidden_field :user, :id %>
+          <%= submit_tag "Delete" %>
+        <% end %>
       </td>
   </tr>
   <% end %>

@@ -1,53 +1,48 @@
 <div class="row"></div>
-<div class="container">
-<div class="sixteen columns alpha">
-<div class="five columns alpha omega nav_container">
-<%= form_tag(edit_coverage_report_path(@coverage_report), method: "get") do %>
-<%= hidden_field :user, :id %>
-<%= submit_tag "Edit" %>
-<% end %>
-<%= form_tag(coverage_report_path(@coverage_report), method: "delete") do %>
-<%= hidden_field :user, :id %>
-<%= submit_tag "Delete" %>
-<% end %>
-<%= form_tag(user_path(@user), method: "get") do %>
-<%= hidden_field :user, :id %>
-<%= submit_tag "Back to Account" %>
-<% end %>
-</div>
-<div class="row"></div>
-<h1><%= @coverage_report.company_name %></h1>
-</div>
-</div>
-</div>
 
 <div class="container">
-<div class="sixteen columns alpha hits_table">
+  <div class="sixteen columns alpha omega">
+    <h1 class="user_banner">
+      <%= @user.username %> (<%= @user.email %>)
+        <%= form_tag(user_path(@user), method: "get") do %>
+        <%= hidden_field :user, :id %>
+        <%= submit_tag "See All My Reports" %>
+      <% end %>
+    </h1>
+  </div>
 
-<table>
-
-<caption>
-  <h3>
-    <%= @coverage_report.announcement %>
-  </h3>
 <div class="row"></div>
-<%= form_tag(new_hit_path, method: "get") do %>
-<%= hidden_field :user, :id %>
-<%= hidden_field :coverage_report, :id %>
-<%= submit_tag "Add New Hit"%>
-<% end %>
-<%= form_tag(hits_path, method: "get") do %>
-  <%= hidden_field :user, :id %>
-  <%= hidden_field :coverage_report, :id %>
-  <%= submit_tag "Download Coverage Report"%>
+
+  <div class="sixteen columns alpha omega cr-title">
+    <h1><%= @coverage_report.company_name %></h1>
+    <h3><%= @coverage_report.announcement %></h3>
+  </div>
+
+
+<div class="row"></div>
+
+<div class="sixteen columns alpha omega hits_table_options">
+  <%= form_tag(new_hit_path, method: "get") do %>
+    <%= hidden_field :user, :id %>
+    <%= hidden_field :coverage_report, :id %>
+    <%= submit_tag "Add New Hit"%>
   <% end %>
+
+  <%= form_tag(hits_path, method: "get") do %>
+    <%= hidden_field :user, :id %>
+    <%= hidden_field :coverage_report, :id %>
+    <%= submit_tag "Download to .csv"%>
+  <% end %>
+
   <%= form_tag(coverage_reports_find_path, method: "get") do %>
-  <%= hidden_field :user, :id %>
-  <%= hidden_field :coverage_report, :id %>
-  <%= submit_tag "Share Coverage Report"%>
+    <%= hidden_field :user, :id %>
+    <%= hidden_field :coverage_report, :id %>
+    <%= submit_tag "Share"%>
   <% end %>
-</caption>
+</div>
 
+<div class="sixteen columns alpha hits_table">
+<table>
   <tr>
     <th>
       Title

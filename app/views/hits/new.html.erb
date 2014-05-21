@@ -1,14 +1,11 @@
 <div class="row"></div>
 <div class="container">
 <div class="sixteen columns">
+<h1 class="user_banner">
+<%= @user.username %> (<%= @user.email %>)
+</h1>
+<div class="row"></div>
 <h1>Enter the URL Below</h1>
-<!--
-<form action="hits_path" method="post">
-  <input type="text" name="hit[hit_url]" placeholder="Enter URL">
-  <input type="submit" value="Add Hit">
-</form>
-
- -->
 
 <%= form_tag(hits_path, method: "post") do %>
 <%= text_field :hit, :hit_url %>

@@ -5,7 +5,7 @@
   <% if @user.errors.any? %>
 <div class="errors">
   <p style="font-weight:bold;">
-    Oops! ...you did a bad thing: <%= pluralize(@user.errors.count, "error") %>
+    Oopsies! ...you did <%= pluralize(@user.errors.count, "bad thing") %>
   </p>
   <div class="row"></div>
   <ul class="error_list">
