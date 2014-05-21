@@ -1,6 +1,6 @@
 # README
 
-One thing every public relations professional has had to deal with is compiling coverage reports. This process typically involves searching for articles and then pasting information piece-by-piece into an excel grid. Now **Coverage Reportr** helps to simplify that process by automating most of the data entry and allowing multiple users to collaborate on a single report. You can even download your reports to .csv and send them as attachments or use the data for other applications.
+One thing every public relations professional has had to deal with is compiling coverage reports. This process typically involves searching for articles and then pasting information piece-by-piece into an excel grid. Now **Coverage Reportr** helps simplify that process by automating most of the data entry and allowing multiple users to collaborate on a single report. You can even download your reports to .csv and send them as attachments or use the data for other applications.
 
 **Once you have an account you can create a coverage report:**
 
