@@ -19,6 +19,10 @@
   background-color: pink;
 }
 
+.url_column {
+  max-width: 500px;
+}
+
 .hits_table table {
   width: 100%;
 }

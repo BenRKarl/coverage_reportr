@@ -45,14 +45,14 @@
     <tr>
       <th>Title</th>
       <th>Author</th>
-      <th>URL</th>
+      <th class="url_column">URL</th>
       <th>Options</th>
     </tr>
   <% @hits.each do |hit| %>
     <tr>
       <td><%= hit.hit_title %></td>
       <td><%= hit.hit_author %></td>
-      <td><a href="<%= hit.hit_url %>"><%= hit.hit_url %></a></td>
+      <td class="url_column"><a href="<%= hit.hit_url %>"><%= hit.hit_url %></a></td>
       <td class="hit_options">
         <%= form_tag(edit_hit_path(hit), method: "get") do %>
           <%= hidden_field_tag :user_id, @user.id %>
