@@ -38,7 +38,7 @@ class Hit < ActiveRecord::Base
   end
 
   def self.to_csv(hits)
-    column_names = [:hit_publication, :hit_title, :hit_url, :hit_author, :hit_date, :hit_sentiment]
+    column_names = ["Publication", "Title", "URL", "Author", "Date", "Tone"]
     CSV.generate do |csv|
       csv << column_names
       hits.each do |hit|
