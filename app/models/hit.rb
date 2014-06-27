@@ -32,11 +32,6 @@ class Hit < ActiveRecord::Base
     AlchemyAPI::SentimentAnalysis.new.search(:url => url)['type']
   end
 
-  #Unused find-text method, not in scope of app but too potentially useful to delete
-  def self.get_text(url)
-    AlchemyAPI::TextExtraction.new.search(:url => url)
-  end
-
   def self.to_csv(hits)
     column_names = ["Publication", "Title", "URL", "Author", "Date", "Tone"]
     CSV.generate do |csv|
