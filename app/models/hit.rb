@@ -4,6 +4,11 @@ class Hit < ActiveRecord::Base
   require 'uri'
   require 'csv'
 
+  # A lot of the logic here has to do with external things that become part of
+  # the system. You should create an object with the sole responsibility
+  # of transforming outside data into internally acceptable data.
+  # These are called adapter layers, or anticorruption layers.
+
   AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
 
   def self.get_publication(url)
