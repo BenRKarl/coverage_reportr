@@ -4,7 +4,7 @@
   <div class="sixteen columns alpha omega">
     <h1 class="user_banner">
       <%= @user.username %> (<%= @user.email %>)
-        <%= form_tag(user_path(@user), method: "get") do %>
+      <%= form_tag(user_path(@user), method: "get") do %>
         <%= hidden_field :user, :id %>
         <%= submit_tag "See All My Reports" %>
       <% end %>
@@ -41,33 +41,33 @@
   </div>
 
   <div class="sixteen columns alpha hits_table">
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th class="url_column">URL</th>
-      <th>Options</th>
-    </tr>
-  <% @hits.each do |hit| %>
-    <tr>
-      <td><%= hit.hit_title %></td>
-      <td><%= hit.hit_author %></td>
-      <td class="url_column"><a href="<%= hit.hit_url %>"><%= hit.hit_url %></a></td>
-      <td class="hit_options">
-        <%= form_tag(edit_hit_path(hit), method: "get") do %>
-          <%= hidden_field_tag :user_id, @user.id %>
-          <%= hidden_field_tag :coverage_report_id, @coverage_report.id %>
-          <%= submit_tag "Edit Hit"%>
-        <% end %>
-        <%= form_tag(hit_path(hit), method: "delete") do %>
-          <%= hidden_field :user, :id %>
-          <%= hidden_field :coverage_report, :id %>
-          <%= submit_tag "Delete Hit"%>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </table>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th class="url_column">URL</th>
+        <th>Options</th>
+      </tr>
+      <% @hits.each do |hit| %>
+        <tr>
+          <td><%= hit.hit_title %></td>
+          <td><%= hit.hit_author %></td>
+          <td class="url_column"><a href="<%= hit.hit_url %>"><%= hit.hit_url %></a></td>
+          <td class="hit_options">
+            <%= form_tag(edit_hit_path(hit), method: "get") do %>
+              <%= hidden_field_tag :user_id, @user.id %>
+              <%= hidden_field_tag :coverage_report_id, @coverage_report.id %>
+              <%= submit_tag "Edit Hit"%>
+            <% end %>
+            <%= form_tag(hit_path(hit), method: "delete") do %>
+              <%= hidden_field :user, :id %>
+              <%= hidden_field :coverage_report, :id %>
+              <%= submit_tag "Delete Hit"%>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <div class="row"></div>
 </div>
