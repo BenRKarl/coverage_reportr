@@ -4,6 +4,11 @@ class Hit < ActiveRecord::Base
   require 'uri'
   require 'csv'
 
+  # A lot of the logic here has to do with external things that become part of
+  # the system. You should create an object with the sole responsibility
+  # of transforming outside data into internally acceptable data.
+  # These are called adapter layers, or anticorruption layers.
+
   AlchemyAPI.key = ENV.fetch('ALCHEMY_API_KEY')
 
   def self.get_publication(url)
@@ -19,22 +24,12 @@ class Hit < ActiveRecord::Base
     Nokogiri::HTML(open(url)).css('title').first.content
   end
 
-  #Faulty find-date method disabled due to errors
-  # def self.get_date(url)
-  #   Nokogiri::HTML(open(url)).css('time').first.content
-  # end
-
   def self.get_author(url)
     AlchemyAPI::AuthorExtraction.new.search(:url => url)['author']
   end
 
   def self.get_sentiment(url)
     AlchemyAPI::SentimentAnalysis.new.search(:url => url)['type']
-  end
-
-  #Unused find-text method, not in scope of app but too potentially useful to delete
-  def self.get_text(url)
-    AlchemyAPI::TextExtraction.new.search(:url => url)
   end
 
   def self.to_csv(hits)

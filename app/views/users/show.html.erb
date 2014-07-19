@@ -2,7 +2,7 @@
 <div class="container">
   <div class="sixteen columns alpha omega">
     <h1 class="user_banner">
-    <%= @user.username %> (<%= @user.email %>)
+      <%= @user.username %> (<%= @user.email %>)
       <%= form_tag(edit_user_path(@user), method: "get") do %>
         <%= submit_tag "Edit Account" %>
       <% end %>
@@ -19,30 +19,30 @@
           <th class="left_row">Coverage Report Name</th>
           <th class="right_row">Do the Stuff</th>
         </tr>
-      <% @coverage_reports.each do |report| %>
-        <tr>
-          <td class="left_row">
-            <%= report.company_name %>: <%= report.announcement %>
-          </td>
-          <td class="right_row">
-            <%= form_tag(coverage_report_path(report), method: "get") do %>
-              <%= hidden_field_tag :user_id, @user.id %>
-              <%= submit_tag "View" %>
-            <% end %>
-            <%= form_tag(edit_coverage_report_path(report), method: "get") do %>
-              <%= hidden_field :user, :id %>
-              <%= submit_tag "Edit" %>
-            <% end %>
-            <%= form_tag(coverage_report_path(report), method: "delete") do %>
-              <%= hidden_field :user, :id %>
-              <%= submit_tag "Delete" %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
+        <% @coverage_reports.each do |report| %>
+          <tr>
+            <td class="left_row">
+              <%= report.company_name %>: <%= report.announcement %>
+            </td>
+            <td class="right_row">
+              <%= form_tag(coverage_report_path(report), method: "get") do %>
+                <%= hidden_field_tag :user_id, @user.id %>
+                <%= submit_tag "View" %>
+              <% end %>
+              <%= form_tag(edit_coverage_report_path(report), method: "get") do %>
+                <%= hidden_field :user, :id %>
+                <%= submit_tag "Edit" %>
+              <% end %>
+              <%= form_tag(coverage_report_path(report), method: "delete") do %>
+                <%= hidden_field :user, :id %>
+                <%= submit_tag "Delete" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
       </table>
 
-    <div class="row"></div>
+      <div class="row"></div>
       <%= form_tag(new_coverage_report_path, method: "get") do %>
         <%= hidden_field :user, :id %>
         <%= submit_tag "New Coverage Report" %>
